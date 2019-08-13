@@ -1,7 +1,7 @@
 {
   "name": "gatsby-transformer-ms-word",
   "description": "Gatsby transformer plugin for MS Word files",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Abhi Yerra <abhi@opszero.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"

@@ -2,8 +2,8 @@ const mammoth = require("mammoth")
 const getDocumentProperties = require('office-document-properties');
 
 
-const convertToJson = path => new Promise((res, rej) => {
-  mammoth.convertToHtml({ path: path }, {})
+const convertToHtml = (path, options) => new Promise((res, rej) => {
+  mammoth.convertToHtml({ path: path }, options)
     .then(result => res(result.value))
     .done()
 })
@@ -22,15 +22,15 @@ async function onCreateNode({
   actions,
   createNodeId,
   createContentDigest,
-}) {
+},
+  pluginOptions) {
   const { createNode, createParentChildLink } = actions
 
-  // Filter out non-pdf content
   if (node.extension !== `docx`) {
     return
   }
 
-  let parsedContent = await convertToJson(node.absolutePath)
+  let parsedContent = await convertToHtml(node.absolutePath, pluginOptions ? pluginOptions : {})
   let parsedMetadata = await convertToMetadata(node.absolutePath)
 
   const docxNode = {
