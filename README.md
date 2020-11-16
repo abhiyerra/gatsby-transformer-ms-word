@@ -26,7 +26,7 @@ module.exports = {
 };
 ```
 
-Then you'll be able to query the textual content of your pdfs files like:
+Then you'll be able to query the textual content of your MS Word files like:
 
 ```javascript
 {
